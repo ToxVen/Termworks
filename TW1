@@ -1,1 +1,28 @@
-
+main(){
+	FILE *f1,*f2,*f3;
+	char usn1[50],usn2[50];
+	int ch1,ch2;
+	f1=fopen("C:/Users/Sahil/Desktop/FromUSN1.txt","r");
+	f2=fopen("C:/Users/Sahil/Desktop/FromUSN2.txt","r");
+	f3=fopen("FromUSN3.txt","w");
+	if(f1==NULL||f2==NULL){
+		printf("dsjuifh\we\n");
+	}
+	else{
+		ch1=fscanf(f1,"%s",usn1);
+		while(ch1==1){
+			ch2=fscanf(f2,"%s",usn2);
+			while(ch2==1){
+				if(strcmp(usn1,usn2)==0){
+					printf("%s\n",usn1);
+					fprintf(f3,"%s\n",usn1);
+				}
+				ch2=fscanf(f2,"%s",usn2);
+			}
+			ch1=fscanf(f1,"%s",usn1);
+			if(ch1==1)
+			rewind(f2);
+		}
+	}
+	fclose(f1);	fclose(f2);	fclose(f3);
+}
