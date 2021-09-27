@@ -1,1 +1,69 @@
-
+#include<stdio.h>
+int sp(char c)
+{
+	switch(c)
+	{
+		case'#':return -1;
+		case'(':return 1;
+		case'+':return 3;
+		case'-':return 3;
+		case'*':return 5;
+		case'/':return 5;
+		case'^':return 7;
+		case'$':return 7;
+	}
+}
+int ip(char c)
+{
+	switch(c)
+	{
+		case'(':return 6;
+		case'+':return 2;
+		case'-':return 2;
+		case'*':return 4;
+		case'/':return 4;
+		case'^':return 8;
+		case'$':return 8;
+	}
+}
+void convert(char infix[40],char postfix[40])
+{
+	int i=0,j=0,top=0;char symb,stk[40]; stk[top]='#';
+	while(infix[i]!='\0')
+	{
+		symb=infix[i];i++;
+		if((symb>='0'&&symb<='9')||(symb>='a'&&symb<='z')||(symb>='A'&&symb<='Z'))
+		{
+			postfix[j]=symb;
+			j++;
+		}
+		else
+		{
+			if(symb==')')
+			{
+				while(stk[top]!='(')
+				{
+					postfix[j++]=stk[top--];
+				}top--;
+			}
+			else
+			{
+				while(sp(stk[top])>=ip(symb))
+				postfix[j++]=stk[top--];
+				stk[++top]=symb;
+			}
+		}
+	}
+	while(stk[top]!='#')
+	{
+		postfix[j++]=stk[top--];
+	}postfix[j]='\0';
+}
+main()
+{
+	char infix[40],postfix[30];
+	printf("enter the infix exp\n");
+	gets(infix);
+	convert(infix,postfix);
+	printf("%s",postfix);
+}
