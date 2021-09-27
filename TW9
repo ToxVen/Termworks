@@ -1,1 +1,108 @@
+#include<stdio.h>
+#include<stdlib.h> 
+#include<string.h>
 
+struct node *newnode(int);
+void insert(); 
+void totalnodes(struct node*); 
+int getleafnodes(struct node*) ;
+int counttwo(struct node*) ; 
+int nonleafnodes (struct node*); 
+struct node 
+{
+int data; 
+struct node*left; 
+struct node* right;
+};
+ 
+struct node *root=NULL;
+int count=0;
+void insert()
+{
+	
+struct node *temp, *p, *cur; 
+temp=(struct node*) malloc(sizeof(struct node));
+printf("\nEnter the element:"); 
+scanf( "%d" ,&temp->data) ; 
+count++ ; 
+temp->left=NULL;
+temp-> right=NULL; 
+p= root ; 
+if ( root=NULL)
+{ 
+root=temp ; 
+}
+else
+{ 
+cur=root ;
+while(cur) 
+p=cur ; 
+if (temp->data>cur->data) 
+cur=cur->right;
+ else
+cur=cur->left;
+}
+if ( temp->data>p->data) 
+p->right=temp ; 
+else 
+p->left=temp;
+printf( "\nElement inserted ");
+}
+
+void totalnodes(struct node *node)
+{ 
+if(count!=0) 
+printf( "\nTota1 number of nodes are %d",count); 
+else 
+printf("There r no nodes");
+
+}
+
+int getleafnodes(struct node *node) 
+{
+if(node==NULL)
+return 0;
+if( node->left==NULL && node->right==NULL);
+return 1; 
+return getteafnodes(node->left )+getleafnodes (node->right ) ;
+}
+ 
+int counttwo(struct node *node) 
+{
+if(node==NULL)
+return 0; 
+if( node->left!=NULL && node->right!=NULL)
+return 1; 
+else 
+return counttwo( node->left )+counttwo( node->right ); 
+}
+
+int NLN(struct node *node)
+{
+	if((node==NULL)||(node->left==NULL && node->right==NULL))
+		return 0;
+	else
+	return(1+NLN(node->left)+NLN(node->right));
+}
+
+main() 
+{
+int ch,ele;
+while( 1 )
+{ 
+printf("\nl.lnsért\n2.Total Nodes.r'i3.Léaf0?de$iAG4.Nodes uith degree two VIS. Non-Leafnodes.\n" ); 
+printf ("\nEnter your choice:"); 
+scanf ("%d",&ch);
+switch(ch)
+{ 
+case 1: insert();break; 
+case 2: totalnodes( root) ;break; 
+case 3: printf( "\nthe total number Of leaf nodes are %d\n",getleafnodes(root)); 
+break ; 
+case 4: printf ( " \nNumber of two degree nodes are \n ",counttwo(root)); 
+break ; 
+case 5: printf ( " \nTotal number of non- leafnodes are %d\n",NLN(root)); 
+break ; 
+}
+}
+}
