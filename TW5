@@ -1,1 +1,66 @@
+#define maxsize 1
+struct Queue
+{
+	int id;
+	char meg[50];
+}q[maxsize];
+int f=0,r=-1;
+void EnQueue(){
+	if(r==maxsize-1){
+		printf("Queue is FULL!!!\n");
+	
+	}
+	else{
+		++r;
+		printf("Enter the id and message u want insert\n");
+		int x;char ch[50];
+		scanf("%d",&q[r].id);
+		gets(q[r].meg);
+		printf("Successfull\n");
+	}
+	
+}
+void deQueue(){
+	if(r==-1||f>r){
+		printf("Empty\n");
+	}
+	else{
+		printf("Message deleted is from id no %d with message %s",q[f].id,q[f].meg);
+		f++;
+		if(f>r){
+			f=0;r=-1;
+		}
+	}
+	
+}
+
+void displayQ(){
+	if(r==-1||f>r){
+		printf("Empty\n");
+	}
+	else{
+		int i=0;
+		printf("Contents of Queue are\n");
+		for (i=0;i<=r;i++){
+			printf("%d\t%s\n",q[i].id,q[i].meg);
+		}
+		printf("DISPLAYED!!!\n");
+	}
+}
+
+main(){
+	int choice;
+	for(;;){
+		printf("1.EnQue\t2.Dequeue\t3.display\n");
+		scanf("%d",&choice);
+		
+		switch(choice){
+			case 1:EnQueue();break;
+			case 2:deQueue();break;
+			case 3:displayQ();break;
+		}
+	
+
+}
+}
 
