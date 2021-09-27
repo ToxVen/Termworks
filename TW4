@@ -1,1 +1,35 @@
-
+double postfix(char exp[])
+{
+	double stk[50],o1,o2;
+	int i=0,top=-1;
+	char symb;
+	do{
+		symb=exp[i++];
+		if(symb>='0'&&symb<='9'){
+			stk[++top]=symb-'0';
+		}
+		else{
+		
+			o2=stk[top--];
+				o1=stk[top--];
+			switch(symb){
+				case '+':stk[++top]=o1+o2;break;
+					case '-':stk[++top]=o1-o2;break;
+						case '*':stk[++top]=o1*o2;break;
+							case '/':stk[++top]=o1/o2;break;
+								case '$':stk[++top]=pow(o1,o2);break;
+									case '^':stk[++top]=pow(o1,o2);break;
+			}
+			
+		}
+	}while(exp[i]!='\0');
+}
+main()
+{
+	char exp[50];
+	double b;
+	printf("Enter the postfix expression");
+	gets(exp);
+	b=postfix(exp);
+	printf("%lf@ exp is %s",b,exp);
+}
