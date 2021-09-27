@@ -1,1 +1,19 @@
+main(){
+	FILE *f1,*f2;int num;
+	f1=fopen("C:/Users/Sahil/Desktop/TW2.txt","r");
+	f2=fopen("Copied.txt","w");
+	if(f1==NULL){
+		printf("Doesnt open\n");
+		exit(0);
+	}
+	else{
+		while(fscanf(f1,"%d",&num)!=EOF){
+			fprintf(f2,"%d\n",num);
+			printf("%d\n",num);
+		}
+		fclose(f1);
+		fclose(f2);
+		printf("Exicuted!!!!");
+	}
 
+}
