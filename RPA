@@ -1,0 +1,73 @@
+TW4
+Excel application scope
+Read range in do
+Set variable values for read range
+Anchor
+Find element and type into
+Type into row(0).tostring
+Click submit
+
+TW5a
+Flowchart Input dialogue box
+Ask for eye colour
+Add switch in flow
+
+TW5b
+Flowchart Input dialogue box
+Variables i=1 flag=0
+flowchart While i<=num
+In while if (num mod i)=0
+Assign flag=flag+1
+Assign outside if in while i=i+1
+Flowchart if flag=2 is prime
+
+TW6
+Flowchart Assign to mysting the sentence
+Variable splittedtext to array
+Flowchart assign to splittedtext mystring.split(Cchar(“”))
+Flowchart assign firststring splittedtext(5)+” “...
+Flowchart assign secondstring splittedtext(15)+..
+Flowchart messagebox firststing plus secstring
+
+TW7
+
+
+TW8a
+Flowchart Open browser open uipath
+Screen scrape variable div scope flowchart
+Flowchart write text file
+Give file name
+
+TW8b
+Flowchart browser uipath/blogs
+Data scrape
+Extract data structure variable ExtractDataTable scope flowchart
+Excel application scope
+Write range
+Use variable extractDataTable
+
+TW9
+Word and PDF packages
+Read pdf text 
+Properties range 2
+Variable extracted_data
+Message box variable
+Append text
+variable
+
+TW10
+Flowchart input dialog box
+“Enter the username”
+Variable email
+Flowchart getpassword
+Properties password variable pass
+Flowchart get imap mail
+Properties folder inbox port 993 server imap.gmail.com
+Properties email email password pass
+Variabel mails
+Flowchart for each
+Properties argument system.net.mail MailMessage
+In for each mail mails
+In body messagebox mail.subject.tostring
+
+
