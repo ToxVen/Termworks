@@ -2,6 +2,7 @@ TW4
 Excel application scope
 Read range in do
 Set variable values for read range
+for each row in data table
 Anchor
 Find element and type into
 Type into row(0).tostring
